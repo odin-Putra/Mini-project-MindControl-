@@ -6,11 +6,17 @@ import { Footer } from './components/Footer';
 import { RainBackground } from './components/RainBackground';
 import { Heart, Leaf, Shield } from 'lucide-react';
 import { About } from './components/About';
+import { MindfulGames } from './components/MindfulGames';
+import { ImmersiveSanctuary } from './components/ImmersiveSanctuary';
+import { EmergencyCalmPage } from './components/EmergencyCalmPage';
+import { Purpose } from './components/Purpose';
+
+export type ViewState = 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose';
 
 function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'about'>('home');
+  const [currentView, setCurrentView] = useState<ViewState>('home');
 
-  const handleNavigate = (page: 'home' | 'about') => {
+  const handleNavigate = (page: ViewState) => {
     setCurrentView(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -20,10 +26,10 @@ function App() {
       <RainBackground />
       <Header onNavigate={handleNavigate} />
       <main className="relative z-10">
-        {currentView === 'home' ? (
+        {currentView === 'home' && (
           <>
             <Hero />
-            <Features />
+            <Features onNavigate={handleNavigate} />
             
             {/* Placeholder Section for content scrolling demonstration */}
             <section className="py-32 px-6 bg-white">
@@ -108,9 +114,13 @@ function App() {
               </div>
             </section>
           </>
-        ) : (
-          <About />
         )}
+        
+        {currentView === 'about' && <About />}
+        {currentView === 'games' && <MindfulGames />}
+        {currentView === 'vr' && <ImmersiveSanctuary onNavigate={handleNavigate} />}
+        {currentView === 'emergency' && <EmergencyCalmPage onNavigate={handleNavigate} />}
+        {currentView === 'purpose' && <Purpose onNavigate={handleNavigate} />}
       </main>
       <Footer />
     </div>

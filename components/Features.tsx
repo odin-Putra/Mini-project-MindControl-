@@ -1,97 +1,131 @@
-import React, { useState } from 'react';
-import { Trophy, Headset, Sparkles, Compass } from 'lucide-react';
+import React from 'react';
+import { Trophy, Headset, Sparkles, Compass, ArrowUpRight } from 'lucide-react';
 import { FeatureItem } from '../types';
-import { EmergencyCalmModal } from './EmergencyCalmModal';
+
+interface FeaturesProps {
+  onNavigate: (view: 'games' | 'vr' | 'emergency' | 'purpose') => void;
+}
 
 const features: FeatureItem[] = [
   {
     id: 'gamification',
     title: 'Mindful Progression',
-    description: 'Turn your wellness journey into a gentle garden that grows as you focus. No leaderboards, just personal bloom.',
+    description: 'Turn your wellness journey into a gentle garden that grows as you focus.',
     icon: Trophy,
-    color: 'bg-sage-50',
+    color: 'text-slate-800',
     delay: '0s'
   },
   {
     id: 'vr',
     title: 'Immersive Sanctuary',
-    description: 'Step into VR environments designed for decompression. Float in clouds or sit by a digital stream.',
+    description: 'Step into VR environments designed for decompression. Float in clouds or sit by a stream.',
     icon: Headset,
-    color: 'bg-sky-50',
-    delay: '0.2s'
+    color: 'text-slate-800',
+    delay: '0.1s'
   },
   {
     id: 'emergency',
     title: 'Emergency Calm',
-    description: 'Feeling overwhelmed? Get an instant, AI-generated grounding technique tailored to your current state.',
+    description: 'Instant, AI-generated grounding techniques tailored to your current emotional state.',
     icon: Sparkles,
-    color: 'bg-lavender-50',
-    delay: '0.4s'
+    color: 'text-slate-800',
+    delay: '0.2s'
   },
   {
     id: 'purpose',
     title: 'What Doing Matters',
-    description: 'Align your daily actions with your core values through guided reflection and intention setting.',
+    description: 'Align your daily actions with your core values through guided reflection.',
     icon: Compass,
-    color: 'bg-orange-50',
-    delay: '0.6s'
+    color: 'text-slate-800',
+    delay: '0.3s'
   }
 ];
 
-export const Features: React.FC = () => {
-  const [activeModal, setActiveModal] = useState<boolean>(false);
+export const Features: React.FC<FeaturesProps> = ({ onNavigate }) => {
 
   const handleCardClick = (id: string) => {
-    if (id === 'emergency') {
-      setActiveModal(true);
+    switch (id) {
+      case 'gamification':
+        onNavigate('games');
+        break;
+      case 'vr':
+        onNavigate('vr');
+        break;
+      case 'emergency':
+        onNavigate('emergency');
+        break;
+      case 'purpose':
+        onNavigate('purpose');
+        break;
+      default:
+        break;
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <section id="features" className="py-24 px-6 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
-          <span className="text-slate-500 text-sm font-semibold tracking-widest uppercase mb-4 block">Features</span>
-          <h2 className="font-serif text-4xl text-slate-800 mb-6">Designed for Serenity</h2>
-          <p className="text-slate-500 max-w-xl mx-auto font-light">
-            Tools built with empathy, grounded in science, and designed to help you reclaim your peace of mind.
-          </p>
-        </div>
+    <section id="features" className="py-24 px-4 md:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Main Gradient Container */}
+        <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-teal-100 via-indigo-100 to-sky-200 p-8 md:p-16 shadow-sm">
+          
+          {/* Header Content */}
+          <div className="relative z-10 mb-16 max-w-3xl">
+            <span className="text-slate-600 text-sm font-bold tracking-widest uppercase mb-4 block">
+              INTRODUCING
+            </span>
+            <h2 className="font-serif text-4xl md:text-5xl text-slate-900 mb-6 leading-tight">
+              The Serenity Engine
+            </h2>
+            <p className="text-lg md:text-xl text-slate-700 font-light leading-relaxed">
+              To solve the noise of the digital world, you need a sanctuary. MindControl is designed to help you:
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature) => (
-            <div
-              key={feature.id}
-              onClick={() => handleCardClick(feature.id)}
-              className={`
-                group relative p-8 rounded-[32px] 
-                bg-white border border-slate-100
-                transition-all duration-500 ease-out
-                hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)]
-                cursor-pointer
-                flex flex-col items-center text-center
-                opacity-0 animate-fade-in-up
-              `}
-              style={{ animationDelay: feature.delay, animationFillMode: 'forwards' }}
-            >
-              <div className={`w-16 h-16 rounded-2xl ${feature.color} flex items-center justify-center mb-6 text-slate-700 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
-                <feature.icon strokeWidth={1.5} size={32} />
+          {/* Cards Grid */}
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature) => (
+              <div
+                key={feature.id}
+                onClick={() => handleCardClick(feature.id)}
+                className={`
+                  group relative p-6 rounded-xl
+                  bg-white/40 backdrop-blur-sm
+                  border border-white/30
+                  hover:bg-white/60 transition-all duration-300
+                  cursor-pointer
+                  flex flex-col items-start text-left
+                  h-full min-h-[220px]
+                `}
+              >
+                {/* Icon */}
+                <div className="mb-6 text-slate-800">
+                  <feature.icon strokeWidth={1.5} size={28} />
+                </div>
+                
+                {/* Content */}
+                <div className="mt-auto">
+                  <div className="flex items-center justify-between w-full mb-2">
+                    <h3 className="font-sans font-semibold text-lg text-slate-900">
+                      {feature.title}
+                    </h3>
+                    <ArrowUpRight size={16} className="text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
+                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
-              
-              <h3 className="font-serif text-xl text-slate-800 mb-3">{feature.title}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{feature.description}</p>
-              
-              {feature.id === 'emergency' && (
-                <span className="mt-6 text-xs font-semibold text-purple-600 bg-purple-50 px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
-                  Try Now
-                </span>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
+          
+          {/* Subtle Background Decoration inside the card */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-teal-200/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+
         </div>
       </div>
-
-      <EmergencyCalmModal isOpen={activeModal} onClose={() => setActiveModal(false)} />
     </section>
   );
 };

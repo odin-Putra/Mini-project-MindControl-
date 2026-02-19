@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 interface HeaderProps {
-  onNavigate: (page: 'home' | 'about') => void;
+  onNavigate: (page: 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
