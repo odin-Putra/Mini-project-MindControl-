@@ -1,7 +1,12 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
+import { ViewState } from '../App';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  onNavigate?: (view: ViewState) => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden pt-20">
       
@@ -23,9 +28,10 @@ export const Hero: React.FC = () => {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up opacity-0" style={{ animationDelay: '0.6s' }}>
           <button 
+            onClick={() => onNavigate?.('signin')}
             className="group relative px-8 py-4 bg-slate-800 text-white rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1"
           >
-            <span className="relative z-10">Explore the Platform</span>
+            <span className="relative z-10">Get Started</span>
             <div className="absolute inset-0 rounded-full bg-slate-600 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
           </button>
           

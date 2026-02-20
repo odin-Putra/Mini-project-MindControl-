@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { ViewState } from '../App';
 
 interface HeaderProps {
-  onNavigate: (page: 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose') => void;
+  onNavigate: (page: ViewState) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
@@ -90,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
         {/* CTA */}
         <div className="hidden md:block">
           <button 
-            onClick={() => onNavigate('home')}
+            onClick={() => onNavigate('signin')}
             className="bg-slate-800 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-slate-700 transition-colors shadow-lg shadow-slate-200"
           >
             Get Started
@@ -121,7 +122,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           ))}
           <button 
             onClick={() => {
-              onNavigate('home');
+              onNavigate('signin');
               setMobileMenuOpen(false);
             }}
             className="w-full bg-slate-800 text-white px-6 py-3 rounded-xl text-base font-medium mt-2"

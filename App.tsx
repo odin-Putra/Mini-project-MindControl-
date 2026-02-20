@@ -11,7 +11,11 @@ import { ImmersiveSanctuary } from './components/ImmersiveSanctuary';
 import { EmergencyCalmPage } from './components/EmergencyCalmPage';
 import { Purpose } from './components/Purpose';
 
-export type ViewState = 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose';
+import { SignIn } from './components/auth/SignIn';
+import { SignUp } from './components/auth/SignUp';
+import { Onboarding } from './components/Onboarding';
+
+export type ViewState = 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose' | 'signin' | 'signup' | 'onboarding';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewState>('home');
@@ -28,7 +32,7 @@ function App() {
       <main className="relative z-10">
         {currentView === 'home' && (
           <>
-            <Hero />
+            <Hero onNavigate={handleNavigate} />
             <Features onNavigate={handleNavigate} />
             
             {/* Placeholder Section for content scrolling demonstration */}
@@ -121,6 +125,9 @@ function App() {
         {currentView === 'vr' && <ImmersiveSanctuary onNavigate={handleNavigate} />}
         {currentView === 'emergency' && <EmergencyCalmPage onNavigate={handleNavigate} />}
         {currentView === 'purpose' && <Purpose onNavigate={handleNavigate} />}
+        {currentView === 'signin' && <SignIn onNavigate={handleNavigate} />}
+        {currentView === 'signup' && <SignUp onNavigate={handleNavigate} />}
+        {currentView === 'onboarding' && <Onboarding onNavigate={handleNavigate} />}
       </main>
       <Footer />
     </div>
