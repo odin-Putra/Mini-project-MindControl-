@@ -14,8 +14,12 @@ import { Purpose } from './components/Purpose';
 import { SignIn } from './components/auth/SignIn';
 import { SignUp } from './components/auth/SignUp';
 import { Onboarding } from './components/Onboarding';
+import { Grounding } from './components/Grounding';
+import { Unhooking } from './components/Unhooking';
+import { ActingOnValues } from './components/ActingOnValues';
+import { BeingKind } from './components/BeingKind';
 
-export type ViewState = 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose' | 'signin' | 'signup' | 'onboarding';
+export type ViewState = 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose' | 'signin' | 'signup' | 'onboarding' | 'grounding' | 'unhooking' | 'acting-values' | 'being-kind';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewState>('home');
@@ -128,6 +132,10 @@ function App() {
         {currentView === 'signin' && <SignIn onNavigate={handleNavigate} />}
         {currentView === 'signup' && <SignUp onNavigate={handleNavigate} />}
         {currentView === 'onboarding' && <Onboarding onNavigate={handleNavigate} />}
+        {currentView === 'grounding' && <Grounding onNavigate={handleNavigate} />}
+        {currentView === 'unhooking' && <Unhooking onNavigate={handleNavigate} />}
+        {currentView === 'acting-values' && <ActingOnValues onNavigate={handleNavigate} />}
+        {currentView === 'being-kind' && <BeingKind onNavigate={handleNavigate} />}
       </main>
       <Footer />
     </div>

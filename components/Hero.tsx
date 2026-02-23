@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowDown } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowDown, Loader2 } from 'lucide-react';
 import { ViewState } from '../App';
 
 interface HeroProps {
@@ -7,6 +7,18 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleGetStarted = () => {
+    if (!onNavigate) return;
+    setIsLoading(true);
+    // Simulate a short delay for better UX feedback before navigating
+    setTimeout(() => {
+      onNavigate('signin');
+      setIsLoading(false);
+    }, 800);
+  };
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden pt-20">
       
@@ -28,18 +40,23 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up opacity-0" style={{ animationDelay: '0.6s' }}>
           <button 
-            onClick={() => onNavigate?.('signin')}
-            className="group relative px-8 py-4 bg-slate-800 text-white rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1"
+            onClick={handleGetStarted}
+            disabled={isLoading}
+            className="group relative px-8 py-4 bg-slate-800 text-white rounded-full font-medium transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-80 disabled:cursor-not-allowed disabled:transform-none min-w-[160px] flex justify-center"
           >
-            <span className="relative z-10">Get Started</span>
-            <div className="absolute inset-0 rounded-full bg-slate-600 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
-          </button>
-          
-          <button className="px-8 py-4 text-slate-600 font-medium hover:text-slate-900 transition-colors flex items-center gap-2 group">
-            Watch the Film
-            <span className="w-8 h-8 rounded-full border border-slate-300 flex items-center justify-center group-hover:border-slate-800 transition-colors">
-              <span className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-slate-600 border-b-[5px] border-b-transparent ml-1" />
+            <span className="relative z-10 flex items-center gap-2">
+              {isLoading ? (
+                <>
+                  <Loader2 className="animate-spin" size={20} />
+                  <span>Loading...</span>
+                </>
+              ) : (
+                'Get Started'
+              )}
             </span>
+            {!isLoading && (
+              <div className="absolute inset-0 rounded-full bg-slate-600 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
+            )}
           </button>
         </div>
       </div>
