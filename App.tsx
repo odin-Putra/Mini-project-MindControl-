@@ -18,8 +18,9 @@ import { Grounding } from './components/Grounding';
 import { Unhooking } from './components/Unhooking';
 import { ActingOnValues } from './components/ActingOnValues';
 import { BeingKind } from './components/BeingKind';
+import { MakingRoom } from './components/MakingRoom';
 
-export type ViewState = 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose' | 'signin' | 'signup' | 'onboarding' | 'grounding' | 'unhooking' | 'acting-values' | 'being-kind';
+export type ViewState = 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose' | 'signin' | 'signup' | 'onboarding' | 'grounding' | 'unhooking' | 'acting-values' | 'being-kind' | 'making-room';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewState>('home');
@@ -136,6 +137,7 @@ function App() {
         {currentView === 'unhooking' && <Unhooking onNavigate={handleNavigate} />}
         {currentView === 'acting-values' && <ActingOnValues onNavigate={handleNavigate} />}
         {currentView === 'being-kind' && <BeingKind onNavigate={handleNavigate} />}
+        {currentView === 'making-room' && <MakingRoom onNavigate={handleNavigate} />}
       </main>
       <Footer />
     </div>

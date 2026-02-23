@@ -88,9 +88,11 @@ export const Purpose: React.FC<Props> = ({ onNavigate }) => {
                   onNavigate('acting-values');
                 } else if (method.title === 'Being kind') {
                   onNavigate('being-kind');
+                } else if (method.title === 'Making room') {
+                  onNavigate('making-room');
                 }
               }}
-              className={`bg-white/60 backdrop-blur-sm rounded-3xl border border-white/50 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full ${method.title === 'Grounding' || method.title === 'Unhooking' || method.title === 'Acting on your values' || method.title === 'Being kind' ? 'cursor-pointer' : ''}`}
+              className={`bg-white/60 backdrop-blur-sm rounded-3xl border border-white/50 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full ${method.title === 'Grounding' || method.title === 'Unhooking' || method.title === 'Acting on your values' || method.title === 'Being kind' || method.title === 'Making room' ? 'cursor-pointer' : ''}`}
             >
               {/* Image Container */}
               <div className="relative h-48 w-full overflow-hidden bg-slate-100">
