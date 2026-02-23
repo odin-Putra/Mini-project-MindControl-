@@ -13,7 +13,7 @@ const methods = [
     description: 'Connect with the present moment through your senses.',
     icon: Anchor,
     color: 'bg-emerald-100 text-emerald-600',
-    image: 'https://picsum.photos/seed/grounding/400/300' // Placeholder: Replace with grounding.png
+    image: 'D:\Shivam\Documents\project mindcontrol\components\images\beeing king.png' //image path added but img not loading
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const methods = [
     description: 'Step back from difficult thoughts and feelings.',
     icon: Unplug,
     color: 'bg-indigo-100 text-indigo-600',
-    image: 'https://picsum.photos/seed/unhooking/400/300' // Placeholder: Replace with unhooking.png
+    image: 'imaunhooking.png' // Placeholder: Replace with unhooking.png
   },
   {
     id: 3,

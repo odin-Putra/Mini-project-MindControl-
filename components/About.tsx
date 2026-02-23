@@ -12,23 +12,23 @@ interface TeamMember {
 // Placeholder data - easy to update
 const teamMembers: TeamMember[] = [
   {
-    name: "Student Name 1",
-    btId: "BT22CSE001",
+    name: "Harshal Dafe",
+    btId: "BT250602CS",
     role: "Lead Developer",
     email: "student1@college.edu",
     phone: "+91 98765 43210"
   },
   {
-    name: "Student Name 2",
-    btId: "BT22CSE002",
-    role: "UI/UX Designer",
+    name: "Vedant Khade",
+    btId: "BT250611CS",
+    role: "Backend Engineer",
     email: "student2@college.edu",
     phone: "+91 98765 43211"
   },
   {
-    name: "Student Name 3",
+    name: "Sujal Tabhde",
     btId: "BT22CSE003",
-    role: "Backend Engineer",
+    role: "UI/UX Designer",
     email: "student3@college.edu",
     phone: "+91 98765 43212"
   },
