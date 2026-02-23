@@ -175,7 +175,7 @@ export const BeingKind: React.FC<BeingKindProps> = ({ onNavigate }) => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-slate-50 flex flex-col items-center justify-center px-6 relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-slate-50 flex flex-col items-center justify-center px-6 pt-32 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-rose-100/40 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />

@@ -3,6 +3,11 @@ import React from 'react';
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-slate-100 py-12 px-6">
+      <div className="max-w-6xl mx-auto flex flex-col items-center gap-8 mb-8 animate-float">
+        <p className="text-center font-bold text-orange-500 text-sm md:text-base bg-orange-50 px-6 py-3 rounded-full border border-orange-100 shadow-sm">
+          This is for informational purposes only. For medical advice or diagnosis, consult a professional.
+        </p>
+      </div>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, ArrowLeft, Anchor, Unplug, Heart, Smile, Box } from 'lucide-react';
+import { Compass, ArrowLeft, Anchor, Unplug, Heart, Smile, Box, Sparkles } from 'lucide-react';
 import { ViewState } from '../App';
 
 interface Props {

@@ -19,8 +19,9 @@ import { Unhooking } from './components/Unhooking';
 import { ActingOnValues } from './components/ActingOnValues';
 import { BeingKind } from './components/BeingKind';
 import { MakingRoom } from './components/MakingRoom';
+import { AuroCompanion } from './components/AuroCompanion';
 
-export type ViewState = 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose' | 'signin' | 'signup' | 'onboarding' | 'grounding' | 'unhooking' | 'acting-values' | 'being-kind' | 'making-room';
+export type ViewState = 'home' | 'about' | 'games' | 'vr' | 'emergency' | 'purpose' | 'signin' | 'signup' | 'onboarding' | 'grounding' | 'unhooking' | 'acting-values' | 'being-kind' | 'making-room' | 'auro-companion';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewState>('home');
@@ -138,6 +139,7 @@ function App() {
         {currentView === 'acting-values' && <ActingOnValues onNavigate={handleNavigate} />}
         {currentView === 'being-kind' && <BeingKind onNavigate={handleNavigate} />}
         {currentView === 'making-room' && <MakingRoom onNavigate={handleNavigate} />}
+        {currentView === 'auro-companion' && <AuroCompanion onNavigate={handleNavigate} />}
       </main>
       <Footer />
     </div>

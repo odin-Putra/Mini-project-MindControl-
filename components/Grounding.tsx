@@ -171,7 +171,7 @@ export const Grounding: React.FC<GroundingProps> = ({ onNavigate }) => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-sky-50 via-emerald-50 to-teal-50 flex flex-col items-center justify-center px-6 relative overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-sky-50 via-emerald-50 to-teal-50 flex flex-col items-center justify-center px-6 pt-32 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-sky-100/50 rounded-full blur-3xl" />
