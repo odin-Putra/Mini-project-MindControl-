@@ -13,7 +13,7 @@ const methods = [
     description: 'Connect with the present moment through your senses.',
     icon: Anchor,
     color: 'bg-emerald-100 text-emerald-600',
-    image: 'D:\Shivam\Documents\project mindcontrol\components\images\beeing king.png' //image path added but img not loading
+    image: 'https://res.cloudinary.com/dmr7jcc2z/image/upload/v1771919593/grounding_o6u6lp.png' //image path added but img not loading
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const methods = [
     description: 'Step back from difficult thoughts and feelings.',
     icon: Unplug,
     color: 'bg-indigo-100 text-indigo-600',
-    image: 'imaunhooking.png' // Placeholder: Replace with unhooking.png
+    image: 'https://res.cloudinary.com/dmr7jcc2z/image/upload/v1771919608/unhooking_nebbfq.png' // Placeholder: Replace with unhooking.png
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const methods = [
     description: 'Identify what matters most and take small steps towards it.',
     icon: Compass,
     color: 'bg-amber-100 text-amber-600',
-    image: 'https://picsum.photos/seed/values/400/300' // Placeholder: Replace with values.png
+    image: 'https://res.cloudinary.com/dmr7jcc2z/image/upload/v1771919593/acting_on_your_values_odlvls.png' // Placeholder: Replace with values.png
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const methods = [
     description: 'Practice self-compassion and kindness towards others.',
     icon: Heart,
     color: 'bg-rose-100 text-rose-600',
-    image: 'https://picsum.photos/seed/kindness/400/300' // Placeholder: Replace with kindness.png
+    image: 'https://res.cloudinary.com/dmr7jcc2z/image/upload/v1771919593/beeing_king_qstox9.png' // Placeholder: Replace with kindness.png
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const methods = [
     description: 'Allow difficult feelings to be present without fighting them.',
     icon: Box,
     color: 'bg-sky-100 text-sky-600',
-    image: 'https://picsum.photos/seed/makingroom/400/300' // Placeholder: Replace with making-room.png
+    image: 'https://res.cloudinary.com/dmr7jcc2z/image/upload/v1771919593/making_room_pnegtk.png' // Placeholder: Replace with making-room.png
   }
 ];
 
